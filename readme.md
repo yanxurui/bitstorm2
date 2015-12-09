@@ -11,13 +11,13 @@ Tracker is an HTTP/HTTPS service which responds to HTTP GET requests from bittor
 ####A more detailed Specification is [here](https://wiki.theory.org/BitTorrentSpecification#Tracker_Response).
 ##Data layout
 
-|#|key				|expire|value-type  |value		 
-|-|-----------------|------|------------|------------
-|1|torrents			|NA    |set			|info_hash1,hash_info2...
-|2|info_hash		|NA    |set			|peer_id1,peer_id2...
-|3|info_hash:peer_id|1860s |hash		|ip4,ip6,port,seed
-**info_hash**: sha1 hash of the bencoded form of the info value from the metainfo file(.torrent file), can dentify the real file to be transfered.
-**peer_id**: identifier of client, generated/changed by the client at startup. Another similay parameter is **key** which is identifier of client and generated/changed by the client when a new session starts.
+| # | key				| expire | value-type   | value
+|---| ----------------- | ------ | ------------ | ------------
+| 1 | torrents			| NA     | set			| info_hash1,hash_info2...
+| 2 | info_hash			| NA     | set			| peer_id1,peer_id2...
+| 3 | info_hash:peer_id | 1860s  | hash			| ip4,ip6,port,seed
+**info_hash**: sha1 hash of the bencoded form of the info value from the metainfo file(.torrent file), can dentify the real file to be transfered.  
+**peer_id**: identifier of client, generated/changed by the client at startup. Another similay parameter is **key** which is identifier of client and generated/changed by the client when a new session starts.  
 **seed**: a peer is seeding when he has 0 bytes left to download, otherwise he is leeching.
 ##Features
 1. Redis as storage.
@@ -33,4 +33,5 @@ Tracker is an HTTP/HTTPS service which responds to HTTP GET requests from bittor
 > http://youripv4:port/announce
 > 
 > http://[youripv6]:port/announce
+
 5. Visit `http://yourip:port/announce` or `http://yourip:port/stats.php` in a broswer to see the statistics of the running tracker.

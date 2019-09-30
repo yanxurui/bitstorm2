@@ -2,8 +2,8 @@
 
 ## What is BitStorm
 BitStorm is a super-thin bittorrent tracker written in PHP which does not require a database.
-BitStorm was originally written by Peter Caprioli as a lightweight bittorrent tracker contained in a single PHP file. As it used only a single flat file as a database, it had difficulty scaling past ~10 announces per second. You can find more detail [here](https://stormhub.org/tracker/ui.php)
-Peter has rewrote the code with MySQL support. Josh Duff forked the beta MySQL code and  published it on [Google Code](https://code.google.com/p/bitstorm/), allowing it to scale a huge numbers of peers.
+BitStorm was originally written by Peter Caprioli as a lightweight bittorrent tracker contained in a single PHP file. As it used only a single flat file as a database, it had difficulty handling ~10 announces per second. You can find more detail [here](https://stormhub.org/tracker/ui.php)
+Peter has rewrote the code with MySQL support. Josh Duff forked the beta MySQL code and  published it on [Google Code](https://code.google.com/p/bitstorm/), allowing it to scale a huge number of peers.
 
 **This version is rewrited based on the bitstorm using redis as its database.**
 
@@ -33,7 +33,7 @@ Read [BitTorrent Protocol Specification](http://www.bittorrent.org/beps/bep_0003
 1. Place the contents in the document root of a php-supported server.
 2. Run `composer install` to download Predis.
 3. Make sure your redis server can be accessed.
-4. Make a torrent and fill tracker as the following URLS(If port absents, 80 will be used)
+4. Make a torrent and fill tracker as the following URLs(If port absents, 80 will be used)
 ```
 http://youripv4:port/announce
 
